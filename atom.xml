@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MLEAutoMaton&#39;s Blog</title>
+  
+  <subtitle>Welcome to MLE&#39;s World</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-02-28T09:26:19.694Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>MLEAutoMaton</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HNOI2013 比赛</title>
+    <link href="http://yoursite.com/2019/02/28/HNOI2013-%E6%AF%94%E8%B5%9B/"/>
+    <id>http://yoursite.com/2019/02/28/HNOI2013-比赛/</id>
+    <published>2019-02-28T09:09:18.000Z</published>
+    <updated>2019-02-28T09:26:19.694Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;传送门&quot;&gt;&lt;a href=&quot;#传送门&quot; class=&quot;headerlink&quot; title=&quot;传送门&quot;&gt;&lt;/a&gt;传送门&lt;/h2&gt;&lt;p&gt;&lt;a href&gt;&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Solution" scheme="http://yoursite.com/categories/Solution/"/>
+    
+    
+      <category term="搜索" scheme="http://yoursite.com/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢迎来到我的博客</title>
+    <link href="http://yoursite.com/2019/02/28/Welcome%20To%20My%20Blog/"/>
+    <id>http://yoursite.com/2019/02/28/Welcome To My Blog/</id>
+    <published>2019-02-28T07:00:00.000Z</published>
+    <updated>2019-02-28T09:20:33.633Z</updated>
+    
+    <content type="html"><![CDATA[<p>欢迎来到我的hexo博客!</p><a id="more"></a><p>emmm,我也不知道自己有多少博客,但是这一次一定是最后一个了.</p><p>希望能够开的很久吧.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;欢迎来到我的hexo博客!&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+</feed>
