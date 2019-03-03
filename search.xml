@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[AT3611]]></title>
+    <title><![CDATA[Atcoder3611 Tree MST]]></title>
     <url>%2F2019%2F03%2F03%2FAT3611%2F</url>
     <content type="text"><![CDATA[传送门Atcoder 题目翻译给你$n$个点的树,每条边有边权,每一个点有点权. 他们两两之间可以构成一个完全图,边$(u,v)$的代价是$w_u+w_v+dis(u,v)$. 求它的最小生成树. Solution考虑这个式子的形成: $w_u+w_v+dis(u,v)$ emmm,发现有个dis,考虑一下点分治! 对于每一个重心的子树,找一个$dis(u,root)+w[u]$的最小的点. 那么其他的点一定在这个子树里面到他最优. 然后直接连边然后跑最小生成树就好了. 复杂度的证明的话,就是: 点分的复杂度是$O(nlog(n))$的. 加入的边的级别是$O(nlog(n))$的. 总复杂度就是$O(nlog(n)^2)$的. 那么就可以放心的写了. 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;#define ll long long#define re registerusing namespace std;inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&lt;='9' &amp;&amp; ch&gt;='0')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=233333;int front[N],nxt[N&lt;&lt;1],to[N&lt;&lt;1],w[N&lt;&lt;1],W[N],n,m,cnt;int siz[N],g[N],root,sum,vis[N];struct node&#123; int u,v;ll w; bool operator&lt;(const node&amp;b)const &#123; return w&lt;b.w; &#125;&#125;e[N*50];ll Min;int p;void Add(int u,int v,int val)&#123; to[++cnt]=v;nxt[cnt]=front[u];front[u]=cnt; w[cnt]=val;&#125;void getroot(int u,int fa)&#123; siz[u]=1;g[u]=0; for(int i=front[u];i;i=nxt[i]) &#123; int v=to[i]; if(v==fa || vis[v])continue; getroot(v,u); siz[u]+=siz[v]; g[u]=max(g[u],siz[v]); &#125; g[u]=max(g[u],sum-siz[u]); if(g[u]&lt;g[root])root=u;&#125;void dfs(int u,int fa,ll dep)&#123; if(Min&gt;W[u]+dep)&#123;Min=W[u]+dep;p=u;&#125; for(int i=front[u];i;i=nxt[i]) &#123; int v=to[i]; if(v==fa || vis[v])continue; dfs(v,u,dep+w[i]); &#125;&#125;void Link(int u,int fa,ll dep)&#123; e[++m]=(node)&#123;u,p,dep+Min+W[u]&#125;; for(int i=front[u];i;i=nxt[i]) &#123; int v=to[i]; if(v==fa || vis[v])continue; Link(v,u,dep+w[i]); &#125;&#125;void solve(int u)&#123; vis[u]=1; Min=1e18+10;p=0; dfs(u,0,0);Link(u,0,0); for(int i=front[u];i;i=nxt[i]) &#123; int v=to[i]; if(vis[v])continue; sum=siz[v];root=0; getroot(v,u); solve(root); &#125;&#125;int f[N];int find(int x)&#123; if(f[x]!=x)f[x]=find(f[x]); return f[x];&#125;int main()&#123; n=gi(); for(int i=1;i&lt;=n;i++)W[i]=gi(); for(int i=1;i&lt;n;i++) &#123; int u=gi(),v=gi(),val=gi(); Add(u,v,val);Add(v,u,val); &#125; g[0]=n+1;sum=n; getroot(1,0); solve(root); sort(e+1,e+m+1); for(int i=1;i&lt;=n;i++)f[i]=i; ll ans=0;int k=0; for(int i=1;i&lt;=m;i++) &#123; int u=find(e[i].u),v=find(e[i].v); if(u!=v) &#123; ans+=e[i].w; k++;f[v]=u; if(k==n-1)break; &#125; &#125; printf("%lld\n",ans); return 0;&#125;]]></content>
       <categories>
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>点分治</tag>
         <tag>Kruscal</tag>
+        <tag>点分治</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +43,8 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>Kruscal</tag>
         <tag>并查集</tag>
+        <tag>Kruscal</tag>
         <tag>Trick</tag>
         <tag>图论</tag>
       </tags>
@@ -57,8 +57,8 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>Kruscal</tag>
         <tag>并查集</tag>
+        <tag>Kruscal</tag>
         <tag>Trick</tag>
         <tag>图论</tag>
       </tags>
