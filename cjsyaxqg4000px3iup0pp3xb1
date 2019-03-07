@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="网络流,建模,">
 
 
 
@@ -90,17 +90,18 @@
 
 
 
-<meta name="description" content="来自CJ的小蒟蒻">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://blog.mle-world.cn/tags/index.html">
+<meta name="description" content="传送门POJ 题目翻译现在有 $m$ 个猪圈,分别有 $a_i$ 头猪. 有 $n$ 个人要买猪,在 $k$ 个猪圈里面选,最多买 $b$ 头猪. 问最多买多少头猪.">
+<meta name="keywords" content="网络流,建模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ1149 PIGS">
+<meta property="og:url" content="https://blog.mle-world.cn/cjsyaxqg4000px3iup0pp3xb1">
 <meta property="og:site_name" content="MLEAutoMaton&#39;s Blog">
-<meta property="og:description" content="来自CJ的小蒟蒻">
+<meta property="og:description" content="传送门POJ 题目翻译现在有 $m$ 个猪圈,分别有 $a_i$ 头猪. 有 $n$ 个人要买猪,在 $k$ 个猪圈里面选,最多买 $b$ 头猪. 问最多买多少头猪.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T09:25:23.758Z">
+<meta property="og:updated_time" content="2019-03-05T07:59:59.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="来自CJ的小蒟蒻">
+<meta name="twitter:title" content="POJ1149 PIGS">
+<meta name="twitter:description" content="传送门POJ 题目翻译现在有 $m$ 个猪圈,分别有 $a_i$ 头猪. 有 $n$ 个人要买猪,在 $k$ 个猪圈里面选,最多买 $b$ 头猪. 问最多买多少头猪.">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.mle-world.cn/tags/">
+  <link rel="canonical" href="https://blog.mle-world.cn/cjsyaxqg4000px3iup0pp3xb1">
 
 
 
 
 
-  <title>标签 | MLEAutoMaton's Blog</title>
+  <title>POJ1149 PIGS | MLEAutoMaton's Blog</title>
   
 
 
@@ -303,40 +304,194 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/cjsyaxqg4000px3iup0pp3xb1">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MLEAutoMaton">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MLEAutoMaton's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 20 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/2-SAT/" style="font-size: 12px; color: #ccc">2-SAT</a> <a href="/tags/Kruscal/" style="font-size: 30px; color: #111">Kruscal</a> <a href="/tags/Trick/" style="font-size: 21px; color: #6f6f6f">Trick</a> <a href="/tags/dp/" style="font-size: 12px; color: #ccc">dp</a> <a href="/tags/二分/" style="font-size: 12px; color: #ccc">二分</a> <a href="/tags/二分答案/" style="font-size: 12px; color: #ccc">二分答案</a> <a href="/tags/介绍/" style="font-size: 12px; color: #ccc">介绍</a> <a href="/tags/几何/" style="font-size: 12px; color: #ccc">几何</a> <a href="/tags/凸包/" style="font-size: 21px; color: #6f6f6f">凸包</a> <a href="/tags/分治/" style="font-size: 12px; color: #ccc">分治</a> <a href="/tags/动态凸包/" style="font-size: 12px; color: #ccc">动态凸包</a> <a href="/tags/图论/" style="font-size: 21px; color: #6f6f6f">图论</a> <a href="/tags/并查集/" style="font-size: 21px; color: #6f6f6f">并查集</a> <a href="/tags/建模/" style="font-size: 12px; color: #ccc">建模</a> <a href="/tags/最短路/" style="font-size: 21px; color: #6f6f6f">最短路</a> <a href="/tags/最短路径树/" style="font-size: 12px; color: #ccc">最短路径树</a> <a href="/tags/点分治/" style="font-size: 12px; color: #ccc">点分治</a> <a href="/tags/网络流/" style="font-size: 21px; color: #6f6f6f">网络流</a> <a href="/tags/计算几何/" style="font-size: 21px; color: #6f6f6f">计算几何</a> <a href="/tags/贪心/" style="font-size: 12px; color: #ccc">贪心</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">POJ1149 PIGS</h1>
         
-      </div>
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T15:35:21+08:00">
+                2019-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cjsyaxqg4000px3iup0pp3xb1" class="leancloud_visitors" data-flag-title="POJ1149 PIGS">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="http://poj.org/problem?id=1149" target="_blank" rel="noopener">POJ</a></p>
+<h2 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h2><p>现在有 $m$ 个猪圈,分别有 $a_i$ 头猪.</p>
+<p>有 $n$ 个人要买猪,在 $k$ 个猪圈里面选,最多买 $b$ 头猪.</p>
+<p>问最多买多少头猪.</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>发现这个数据范围很像网络流啊.</p>
+<p>我们新建一个 $s$ , $t$ 节点.</p>
+<p>把每一个人向 $t$ 节点连一个需求量,考虑每一个猪圈怎么解决:</p>
+<p>我们想一下怎么转换模型,如果可以调换的话,相当于就是这些猪是一个整体对吧.</p>
+<p>所以我们可以考虑把</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10010</span>,M=<span class="number">200010</span>,Inf=<span class="number">1e9</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> front[N],nxt[M&lt;&lt;<span class="number">1</span>],to[M&lt;&lt;<span class="number">1</span>],w[M&lt;&lt;<span class="number">1</span>],cnt=<span class="number">1</span>,s,t,dep[N],m,n,pig[N],bl[N],cur[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;g[N];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add_edge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	to[++cnt]=v;nxt[cnt]=front[u];w[cnt]=val;front[u]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Add_edge(u,v,val);</span><br><span class="line">	Add_edge(v,u,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dep,<span class="number">0</span>,<span class="keyword">sizeof</span>(dep));</span><br><span class="line">	dep[s]=<span class="number">1</span>;Q.push(s);</span><br><span class="line">	<span class="keyword">while</span>(!Q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> u=Q.front();Q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];i;i=nxt[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> v=to[i];</span><br><span class="line">			<span class="keyword">if</span>(w[i] &amp;&amp; !dep[v])</span><br><span class="line">			&#123;</span><br><span class="line">				dep[v]=dep[u]+<span class="number">1</span>;Q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dep[t];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> flow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u==t || !flow)<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> &amp;i=cur[u];i;i=nxt[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> v=to[i];</span><br><span class="line">		<span class="keyword">if</span>(dep[v]==dep[u]+<span class="number">1</span> &amp;&amp; w[i])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> di=dfs(v,min(flow,w[i]));</span><br><span class="line">			<span class="keyword">if</span>(di)</span><br><span class="line">			&#123;</span><br><span class="line">				w[i]-=di;w[i^<span class="number">1</span>]+=di;</span><br><span class="line">				<span class="keyword">return</span> di;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(bfs())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=s;i&lt;=t;i++)cur[i]=front[i];</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">int</span> d=dfs(s,Inf))flow+=d;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">	freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"out.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	<span class="built_in">memset</span>(front,<span class="number">-1</span>,<span class="keyword">sizeof</span>(front));</span><br><span class="line">	m=gi();n=gi();t=n+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)pig[i]=gi();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> k=gi();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=k;j++)</span><br><span class="line">			g[i].push_back(gi());</span><br><span class="line">		Add(i,t,gi());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;g[i].size();j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> v=g[i][j];</span><br><span class="line">			<span class="keyword">if</span>(!bl[v])</span><br><span class="line">			&#123;</span><br><span class="line">				bl[v]=i;</span><br><span class="line">				Add(s,i,pig[v]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				Add(bl[v],i,Inf);</span><br><span class="line">				bl[v]=i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Dinic());</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络流/" rel="tag"># 网络流</a>
+          
+            <a href="/tags/建模/" rel="tag"># 建模</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cjsyaxqfv000ex3iuupmvek7b" rel="next" title="CodeChef Querying on a Grid">
+                <i class="fa fa-chevron-left"></i> CodeChef Querying on a Grid
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cjsyaxqfk000ax3iu65asis26" rel="prev" title="BZOJ3691 旅行">
+                BZOJ3691 旅行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -345,6 +500,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -365,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,6 +619,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传送门"><span class="nav-number">1.</span> <span class="nav-text">传送门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目翻译"><span class="nav-number">2.</span> <span class="nav-text">题目翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

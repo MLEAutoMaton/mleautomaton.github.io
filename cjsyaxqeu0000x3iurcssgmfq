@@ -77,7 +77,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="并查集,Kruscal,Trick,图论,">
 
 
 
@@ -90,17 +90,21 @@
 
 
 
-<meta name="description" content="来自CJ的小蒟蒻">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://blog.mle-world.cn/tags/index.html">
+<meta name="description" content="传送门Atcoder 题目翻译给出n个点,编号为0~n-1. 现在给出Q个加边操作,每一次的系数为$a,b,c$. 每一次可以插入无限条边,插入规则大致是:$(Ai,Bi,Ci)(Bi,Ai+1,Ci+1),(Ai+1,Bi+1,Ci+2)$等等,求给定图的最小生成树.">
+<meta name="keywords" content="并查集,Kruscal,Trick,图论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atcoder2134 Zigzag MST">
+<meta property="og:url" content="https://blog.mle-world.cn/cjsyaxqeu0000x3iurcssgmfq">
 <meta property="og:site_name" content="MLEAutoMaton&#39;s Blog">
-<meta property="og:description" content="来自CJ的小蒟蒻">
+<meta property="og:description" content="传送门Atcoder 题目翻译给出n个点,编号为0~n-1. 现在给出Q个加边操作,每一次的系数为$a,b,c$. 每一次可以插入无限条边,插入规则大致是:$(Ai,Bi,Ci)(Bi,Ai+1,Ci+1),(Ai+1,Bi+1,Ci+2)$等等,求给定图的最小生成树.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T09:25:23.758Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kHv1cq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kHvl3n.png">
+<meta property="og:updated_time" content="2019-03-04T09:30:00.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="来自CJ的小蒟蒻">
+<meta name="twitter:title" content="Atcoder2134 Zigzag MST">
+<meta name="twitter:description" content="传送门Atcoder 题目翻译给出n个点,编号为0~n-1. 现在给出Q个加边操作,每一次的系数为$a,b,c$. 每一次可以插入无限条边,插入规则大致是:$(Ai,Bi,Ci)(Bi,Ai+1,Ci+1),(Ai+1,Bi+1,Ci+2)$等等,求给定图的最小生成树.">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/01/kHv1cq.png">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.mle-world.cn/tags/">
+  <link rel="canonical" href="https://blog.mle-world.cn/cjsyaxqeu0000x3iurcssgmfq">
 
 
 
 
 
-  <title>标签 | MLEAutoMaton's Blog</title>
+  <title>Atcoder2134 Zigzag MST | MLEAutoMaton's Blog</title>
   
 
 
@@ -303,40 +307,196 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/cjsyaxqeu0000x3iurcssgmfq">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MLEAutoMaton">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MLEAutoMaton's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 20 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/2-SAT/" style="font-size: 12px; color: #ccc">2-SAT</a> <a href="/tags/Kruscal/" style="font-size: 30px; color: #111">Kruscal</a> <a href="/tags/Trick/" style="font-size: 21px; color: #6f6f6f">Trick</a> <a href="/tags/dp/" style="font-size: 12px; color: #ccc">dp</a> <a href="/tags/二分/" style="font-size: 12px; color: #ccc">二分</a> <a href="/tags/二分答案/" style="font-size: 12px; color: #ccc">二分答案</a> <a href="/tags/介绍/" style="font-size: 12px; color: #ccc">介绍</a> <a href="/tags/几何/" style="font-size: 12px; color: #ccc">几何</a> <a href="/tags/凸包/" style="font-size: 21px; color: #6f6f6f">凸包</a> <a href="/tags/分治/" style="font-size: 12px; color: #ccc">分治</a> <a href="/tags/动态凸包/" style="font-size: 12px; color: #ccc">动态凸包</a> <a href="/tags/图论/" style="font-size: 21px; color: #6f6f6f">图论</a> <a href="/tags/并查集/" style="font-size: 21px; color: #6f6f6f">并查集</a> <a href="/tags/建模/" style="font-size: 12px; color: #ccc">建模</a> <a href="/tags/最短路/" style="font-size: 21px; color: #6f6f6f">最短路</a> <a href="/tags/最短路径树/" style="font-size: 12px; color: #ccc">最短路径树</a> <a href="/tags/点分治/" style="font-size: 12px; color: #ccc">点分治</a> <a href="/tags/网络流/" style="font-size: 21px; color: #6f6f6f">网络流</a> <a href="/tags/计算几何/" style="font-size: 21px; color: #6f6f6f">计算几何</a> <a href="/tags/贪心/" style="font-size: 12px; color: #ccc">贪心</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Atcoder2134 Zigzag MST</h1>
         
-      </div>
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T16:56:36+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/cjsyaxqeu0000x3iurcssgmfq" class="leancloud_visitors" data-flag-title="Atcoder2134 Zigzag MST">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://cf16-final.contest.atcoder.jp/tasks/codefestival_2016_final_g?lang=en" target="_blank" rel="noopener">Atcoder</a></p>
+<h2 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h2><p>给出n个点,编号为0~n-1.</p>
+<p>现在给出Q个加边操作,每一次的系数为$a,b,c$.</p>
+<p>每一次可以插入无限条边,插入规则大致是:$(Ai,Bi,Ci)(Bi,Ai+1,Ci+1),(Ai+1,Bi+1,Ci+2)$等等,求给定图的最小生成树.</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="引入-假"><a href="#引入-假" class="headerlink" title="引入(假)"></a>引入(假)</h3><p>在写题目之前先插播一条广告:<br><a href="https://lydsy.com/JudgeOnline/wttl/thread.php?tid=6620" target="_blank" rel="noopener">有么有人资磁yyb小姐姐和zsy小哥哥在一起啊</a><del>萝卜你应该要给我广告费</del></p>
+<h3 id="引入-真"><a href="#引入-真" class="headerlink" title="引入(真)"></a>引入(真)</h3><p>如果现在有这样两条边摆在你面前:<br>$(a,b,x)和(b,c,y)$<br>我们知道$x&lt;y$,那么$(b,c,y)$就可以转换为$(a,c,y)$<br>画一个图来深刻理解一下:<br><img src="https://s2.ax1x.com/2019/03/01/kHv1cq.png" alt="kHv1cq.png"><br><img src="https://s2.ax1x.com/2019/03/01/kHvl3n.png" alt="kHvl3n.png"><br><strong>其实这两个是等价的!</strong></p>
+<h3 id="关于本题"><a href="#关于本题" class="headerlink" title="关于本题"></a>关于本题</h3><p>我们发现它的连边真心鬼畜,按照上面的那个什么替换一下?<br>$(a,b,c)与(b,a+1,c+1)$<br>emmm,这不就是<br>$(a,b,c)与(a,a+1,c+1)$<br>那么我们每一条限制就变成了一堆相邻的边的权值了.<br>当然,注意$(a,b,c)$并没有消失!!!<br>现在问题转换成如何快速求出每一条边的最小权值!<br>注意到$a-&gt;a+1$和$b-&gt;b+1$一定是最小的两条边权,那么后面的一定会用它们更新!<br>于是我们先把$a,b$的权值给赋上,然后按照顺序扫一遍就可以了.<br>最后一个容易咕的地方就是:<br>每次的贡献应当是$+2$而不是$+1$,因为它是两边同时进行.</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">400010</span>;</span><br><span class="line"><span class="keyword">int</span> val[N],n,q,cnt,f[N];</span><br><span class="line">ll ans;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> u,v,w;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> node&amp;b)<span class="keyword">const</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> w&lt;b.w;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;e[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(f[x]!=x)f[x]=find(f[x]);</span><br><span class="line">	<span class="keyword">return</span> f[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	n=gi();q=gi();</span><br><span class="line">	<span class="built_in">memset</span>(val,<span class="number">127</span>,<span class="keyword">sizeof</span>(val));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=q;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a=gi(),b=gi(),c=gi();</span><br><span class="line">		e[++cnt]=(node)&#123;a,b,c&#125;;</span><br><span class="line">		val[a]=min(val[a],c+<span class="number">1</span>);</span><br><span class="line">		val[b]=min(val[b],c+<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pos=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)<span class="keyword">if</span>(val[pos]&gt;val[i])pos=i;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=(pos+<span class="number">1</span>)%n,j=pos;i!=pos;j=i,i=(i+<span class="number">1</span>)%n)</span><br><span class="line">		val[i]=min(val[i],val[j]+<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">		e[++cnt]=(node)&#123;i,i+<span class="number">1</span>,val[i]&#125;;</span><br><span class="line">	e[++cnt]=(node)&#123;n<span class="number">-1</span>,<span class="number">0</span>,val[n<span class="number">-1</span>]&#125;;</span><br><span class="line">	sort(e+<span class="number">1</span>,e+cnt+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)f[i]=i;</span><br><span class="line">	<span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> u=e[i].u,v=e[i].v;</span><br><span class="line">		<span class="keyword">if</span>(find(u)!=find(v))</span><br><span class="line">		&#123;</span><br><span class="line">			ans+=e[i].w,f[find(u)]=find(v);</span><br><span class="line">			k++;</span><br><span class="line">			<span class="keyword">if</span>(k==n<span class="number">-1</span>)<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/并查集/" rel="tag"># 并查集</a>
+          
+            <a href="/tags/Kruscal/" rel="tag"># Kruscal</a>
+          
+            <a href="/tags/Trick/" rel="tag"># Trick</a>
+          
+            <a href="/tags/图论/" rel="tag"># 图论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/cjsyaxqfy000ix3iupxbwgzx8" rel="next" title="CodeForces891C Envy">
+                <i class="fa fa-chevron-left"></i> CodeForces891C Envy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/cjsyaxqfr000dx3iur5patyxy" rel="prev" title="Cerc2012 Farm and factory">
+                Cerc2012 Farm and factory <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -345,6 +505,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -365,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,6 +624,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传送门"><span class="nav-number">1.</span> <span class="nav-text">传送门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目翻译"><span class="nav-number">2.</span> <span class="nav-text">题目翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-假"><span class="nav-number">3.1.</span> <span class="nav-text">引入(假)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-真"><span class="nav-number">3.2.</span> <span class="nav-text">引入(真)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于本题"><span class="nav-number">3.3.</span> <span class="nav-text">关于本题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
