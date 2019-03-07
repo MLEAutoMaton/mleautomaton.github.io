@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CodeForces802C Heidi and Library(hard)]]></title>
+    <url>%2Fcodeforces802c-heidi-and-library-hard%2F</url>
+    <content type="text"><![CDATA[传送门CodeForces 题目翻译有$n$天和一个容量为$k$的书架,每天需要第$a_i$本书,买$i$这本书的代价是$c_i$,求满足每天条件的最小代价. Solution显然如果第$i$天需要$a_i$,那么$a_i$必须要在书架上面.考虑像餐巾计划一样把每一天拆成2个点,分别表示拥有的和需要的.显然当前这一天一定是连$(i,i+n,1,-Inf)$表示必须选.后面的随便连一下判断需不需要再买书就好了.最后跑k次费用流的费用就是答案.注意要把n*Inf的代价加上. 代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define re register#define ll long longinline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int Inf=1e7;struct node&#123; int to,nxt,flow,cost;&#125;e[100010];int front[5010],n,s,t,cnt=1,dis[5010],vis[5010],fa[5010],from[5010],a[100010],c[100010];void Add(int u,int v,int flow,int cost)&#123; e[++cnt]=(node)&#123;v,front[u],flow,cost&#125;;front[u]=cnt; e[++cnt]=(node)&#123;u,front[v],0,-cost&#125;;front[v]=cnt;&#125;int flow,k,cost;queue&lt;int&gt;Q;bool SPFA()&#123; for(re int i=s;i&lt;=t;i++)dis[i]=Inf; Q.push(s); dis[s]=0;vis[s]=1; while(!Q.empty())&#123; int u=Q.front();Q.pop();vis[u]=0; for(re int i=front[u];i;i=e[i].nxt)&#123; int v=e[i].to; if(e[i].flow &amp;&amp; dis[v]&gt;dis[u]+e[i].cost)&#123; dis[v]=dis[u]+e[i].cost;fa[v]=u; from[v]=i; if(!vis[v])&#123; vis[v]=1;Q.push(v); &#125; &#125; &#125; &#125; if(dis[t]==Inf)return false; flow++;cost=min(cost,cost+dis[t]); for(re int i=t;i!=s;i=fa[i])&#123; e[from[i]].flow--;e[from[i]^1].flow++; &#125; return true;&#125;void McMf()&#123; while(k--)SPFA();&#125;signed main()&#123; n=gi();k=gi(); t=n*2+1; for(int i=1;i&lt;=n;i++)a[i]=gi(); for(int i=1;i&lt;=n;i++)c[i]=gi(); for(int i=1;i&lt;=n;i++)Add(s,i,1,c[a[i]]); for(int i=1;i&lt;=n;i++)Add(i,i+n,1,-Inf); for(int i=1;i&lt;=n;i++)Add(i+n,t,1,0); for(int i=1;i&lt;n;i++) for(int j=i+1;j&lt;=n;j++) &#123; Add(i+n,j,1,a[i]==a[j]?0:c[a[j]]); &#125; cost+=1ll*n*Inf;k=min(k,n); McMf(); printf("%d\n",cost); return 0;&#125;]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>网络流</tag>
+        <tag>建模</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[HAOI2011]防线建设]]></title>
     <url>%2Fhaoi2011-%E9%98%B2%E7%BA%BF%E5%BB%BA%E8%AE%BE%2F</url>
     <content type="text"><![CDATA[$\texttt{stO}​$ $\color{red}h \color{black}{yjhyj​}$ $\texttt{Orz}​$ 传送门BZOJ 然而是权限题 洛谷 Solution不会凸包的出门右转→ 考虑我们不会删点的动态凸包,但是这道题目只有删点,所以删点=加点! 那么怎么动态维护可以加点的凸包呢? 很显然每加入一个然后删除一些没有用的点就可以了. 这个东西平衡树查一下前驱就可以实现. set大法好! 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=200010;struct P&#123; int x,y; bool operator&lt;(const P &amp;b)const &#123; return x&lt;b.x || (x==b.x &amp;&amp; y&lt;b.y); &#125; int operator*(const P &amp;b)const &#123; return x*b.y-y*b.x; &#125; P operator-(const P &amp;b)const &#123; return (P)&#123;x-b.x,y-b.y&#125;; &#125;&#125;city[N];set&lt;P&gt;t;double now,ans[N];int del[N],tot,T,ask[N],n,x,y,mark[N];double dis(P a,P b)&#123; return sqrt((double)(a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));&#125;void insert(P &amp;x)&#123; set&lt;P&gt;::iterator r=t.lower_bound(x),l=r,tmp; l--; if((*r-*l)*(x-*l)&lt;0)return; now-=dis(*l,*r); t.insert(x); while(1) &#123; tmp=r;r++; if(r==t.end())break; if((*r-x)*(*tmp-x)&gt;0)break; now-=dis(*tmp,*r); t.erase(tmp); &#125; while(l!=t.begin()) &#123; tmp=l;l--; if((*tmp-x)*(*l-x)&gt;0)break; now-=dis(*tmp,*l); t.erase(tmp); &#125; t.insert(x); l=r=t.find(x); l--;r++; now+=dis(*l,x)+dis(x,*r);&#125;int main()&#123;#ifndef ONLINE_JUDGE freopen("in.in","r",stdin);#endif n=gi();x=gi(),y=gi(); t.insert((P)&#123;0,0&#125;); t.insert((P)&#123;n,0&#125;); P cap=(P)&#123;x,y&#125;; t.insert(cap); now+=dis((P)&#123;0,0&#125;,cap); now+=dis((P)&#123;n,0&#125;,cap); int m=gi(); for(int i=1;i&lt;=m;i++) &#123; int a=gi(),b=gi(); city[i]=(P)&#123;a,b&#125;; &#125; int q=gi(); for(int i=1;i&lt;=q;i++) &#123; int opt=gi(); if(opt==1)&#123;int x=gi();del[++tot]=x,mark[x]=1;&#125; else ask[++T]=tot; &#125; for(int i=1;i&lt;=m;i++) if(!mark[i])insert(city[i]); for(int i=T;i&gt;=1;i--) &#123; while(tot&gt;ask[i]) &#123; insert(city[del[tot]]); tot--; &#125; ans[i]=now; &#125; for(int i=1;i&lt;=T;i++) printf("%.2lf\n",ans[i]); return 0;&#125;]]></content>
@@ -9,8 +21,8 @@
       </categories>
       <tags>
         <tag>凸包</tag>
-        <tag>计算几何</tag>
         <tag>动态凸包</tag>
+        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -107,8 +119,8 @@
       <tags>
         <tag>并查集</tag>
         <tag>Kruscal</tag>
-        <tag>图论</tag>
         <tag>Trick</tag>
+        <tag>图论</tag>
       </tags>
   </entry>
   <entry>
@@ -121,8 +133,8 @@
       <tags>
         <tag>并查集</tag>
         <tag>Kruscal</tag>
-        <tag>图论</tag>
         <tag>Trick</tag>
+        <tag>图论</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.mle-world.cn/"/>
-  <updated>2019-03-07T07:08:11.319Z</updated>
+  <updated>2019-03-07T07:36:47.957Z</updated>
   <id>https://blog.mle-world.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CodeForces802C Heidi and Library(hard)</title>
+    <link href="https://blog.mle-world.cn/codeforces802c-heidi-and-library-hard/"/>
+    <id>https://blog.mle-world.cn/codeforces802c-heidi-and-library-hard/</id>
+    <published>2019-03-07T07:26:43.000Z</published>
+    <updated>2019-03-07T07:36:47.957Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="http://codeforces.com/problemset/problem/802/C" target="_blank" rel="noopener">CodeForces</a></p><h2 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h2><p>有$n$天和一个容量为$k$的书架,每天需要第$a_i$本书,买$i$这本书的代价是$c_i$,求满足每天条件的最小代价.</p><a id="more"></a><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>显然如果第$i$天需要$a_i$,那么$a_i$必须要在书架上面.<br>考虑像餐巾计划一样把每一天拆成2个点,分别表示拥有的和需要的.<br>显然当前这一天一定是连$(i,i+n,1,-Inf)$表示必须选.<br>后面的随便连一下判断需不需要再买书就好了.<br>最后跑k次费用流的费用就是答案.<br>注意要把n*Inf的代价加上.</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line"><span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line"><span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line"><span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Inf=<span class="number">1e7</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line"><span class="keyword">int</span> to,nxt,flow,cost;</span><br><span class="line">&#125;e[<span class="number">100010</span>];</span><br><span class="line"><span class="keyword">int</span> front[<span class="number">5010</span>],n,s,t,cnt=<span class="number">1</span>,dis[<span class="number">5010</span>],vis[<span class="number">5010</span>],fa[<span class="number">5010</span>],from[<span class="number">5010</span>],a[<span class="number">100010</span>],c[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> flow,<span class="keyword">int</span> cost)</span></span>&#123;</span><br><span class="line">e[++cnt]=(node)&#123;v,front[u],flow,cost&#125;;front[u]=cnt;</span><br><span class="line">e[++cnt]=(node)&#123;u,front[v],<span class="number">0</span>,-cost&#125;;front[v]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> flow,k,cost;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SPFA</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">for</span>(re <span class="keyword">int</span> i=s;i&lt;=t;i++)dis[i]=Inf;</span><br><span class="line">Q.push(s);</span><br><span class="line">dis[s]=<span class="number">0</span>;vis[s]=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line"><span class="keyword">int</span> u=Q.front();Q.pop();vis[u]=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(re <span class="keyword">int</span> i=front[u];i;i=e[i].nxt)&#123;</span><br><span class="line"><span class="keyword">int</span> v=e[i].to;</span><br><span class="line"><span class="keyword">if</span>(e[i].flow &amp;&amp; dis[v]&gt;dis[u]+e[i].cost)&#123;</span><br><span class="line">dis[v]=dis[u]+e[i].cost;fa[v]=u;</span><br><span class="line">from[v]=i;</span><br><span class="line"><span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line">vis[v]=<span class="number">1</span>;Q.push(v);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(dis[t]==Inf)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">flow++;cost=min(cost,cost+dis[t]);</span><br><span class="line"><span class="keyword">for</span>(re <span class="keyword">int</span> i=t;i!=s;i=fa[i])&#123;</span><br><span class="line">e[from[i]].flow--;e[from[i]^<span class="number">1</span>].flow++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">McMf</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">while</span>(k--)SPFA();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">n=gi();k=gi();</span><br><span class="line">t=n*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)a[i]=gi();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)c[i]=gi();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Add(s,i,<span class="number">1</span>,c[a[i]]);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Add(i,i+n,<span class="number">1</span>,-Inf);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Add(i+n,t,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">&#123;</span><br><span class="line">Add(i+n,j,<span class="number">1</span>,a[i]==a[j]?<span class="number">0</span>:c[a[j]]);</span><br><span class="line">&#125;</span><br><span class="line">cost+=<span class="number">1l</span>l*n*Inf;k=min(k,n);</span><br><span class="line">McMf();</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cost);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;传送门&quot;&gt;&lt;a href=&quot;#传送门&quot; class=&quot;headerlink&quot; title=&quot;传送门&quot;&gt;&lt;/a&gt;传送门&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://codeforces.com/problemset/problem/802/C&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CodeForces&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目翻译&quot;&gt;&lt;a href=&quot;#题目翻译&quot; class=&quot;headerlink&quot; title=&quot;题目翻译&quot;&gt;&lt;/a&gt;题目翻译&lt;/h2&gt;&lt;p&gt;有$n$天和一个容量为$k$的书架,每天需要第$a_i$本书,买$i$这本书的代价是$c_i$,求满足每天条件的最小代价.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Solution" scheme="https://blog.mle-world.cn/categories/Solution/"/>
+    
+    
+      <category term="网络流" scheme="https://blog.mle-world.cn/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="建模" scheme="https://blog.mle-world.cn/tags/%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>[HAOI2011]防线建设</title>
@@ -39,9 +64,9 @@
     
       <category term="凸包" scheme="https://blog.mle-world.cn/tags/%E5%87%B8%E5%8C%85/"/>
     
-      <category term="计算几何" scheme="https://blog.mle-world.cn/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
-    
       <category term="动态凸包" scheme="https://blog.mle-world.cn/tags/%E5%8A%A8%E6%80%81%E5%87%B8%E5%8C%85/"/>
+    
+      <category term="计算几何" scheme="https://blog.mle-world.cn/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
   </entry>
   
@@ -246,9 +271,9 @@
     
       <category term="Kruscal" scheme="https://blog.mle-world.cn/tags/Kruscal/"/>
     
-      <category term="图论" scheme="https://blog.mle-world.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="Trick" scheme="https://blog.mle-world.cn/tags/Trick/"/>
+    
+      <category term="图论" scheme="https://blog.mle-world.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
@@ -275,9 +300,9 @@
     
       <category term="Kruscal" scheme="https://blog.mle-world.cn/tags/Kruscal/"/>
     
-      <category term="图论" scheme="https://blog.mle-world.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="Trick" scheme="https://blog.mle-world.cn/tags/Trick/"/>
+    
+      <category term="图论" scheme="https://blog.mle-world.cn/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
