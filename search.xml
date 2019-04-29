@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[GX|GZOI2019Day1]]></title>
     <url>%2Fgx-gzoi2019day1%2F</url>
-    <content type="text"><![CDATA[戳我看总结]]></content>
+    <content type="text"><![CDATA[没有摘要 戳我看总结]]></content>
       <categories>
         <category>Summary</category>
       </categories>
@@ -88,9 +88,9 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>计算几何</tag>
         <tag>凸包</tag>
         <tag>动态凸包</tag>
+        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -101,8 +101,8 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>计算几何</tag>
         <tag>凸包</tag>
+        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
