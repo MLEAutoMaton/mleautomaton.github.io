@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[GXOI/GZOI2019]旧词]]></title>
+    <url>%2Fgxoi-gzoi2019-%E6%97%A7%E8%AF%8D%2F</url>
+    <content type="text"><![CDATA[传送门Loj Solution我们先想一下答案怎么转换(如果$k=1$)?把$y$到根节点的路径打上标记,答案就是$i \leq x$到根节点的路径的标记总数.这个又可以变成:$i \leq x$到根节点的路径打标记,然后$y$到根节点的标记总数.然后如果$k!=1$,也可以差分就好了. 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=50010,Mod=998244353;struct node&#123;int to,nxt;&#125;e[N&lt;&lt;1];struct ques&#123;int x,y,id;&#125;q[N];int front[N],cnt,dep[N],fa[N],siz[N],son[N],dfn[N],top[N],Time,n,Q,k,id[N],sum[N];int qpow(int a,int b)&#123;int ret=1;while(b)&#123;if(b&amp;1)ret=1ll*ret*a%Mod;a=1ll*a*a%Mod;b&gt;&gt;=1;&#125;return ret;&#125;void Add(int u,int v)&#123;e[++cnt]=(node)&#123;v,front[u]&#125;;front[u]=cnt;&#125;bool cmp(ques a,ques b)&#123;return a.x&lt;b.x;&#125;void dfs1(int u,int ff)&#123; dep[u]=dep[ff]+1;siz[u]=1; for(int i=front[u];i;i=e[i].nxt) &#123; int v=e[i].to; dfs1(v,u); siz[u]+=siz[v]; if(siz[son[u]]&lt;siz[v])son[u]=v; &#125;&#125;void dfs2(int u,int tp)&#123; dfn[u]=++Time;top[u]=tp;id[dfn[u]]=u; if(!son[u])return; dfs2(son[u],tp); for(int i=front[u];i;i=e[i].nxt) &#123; int v=e[i].to;if(v==son[u])continue; dfs2(v,v); &#125;&#125;struct Tree&#123;int sum,atag;&#125;t[N&lt;&lt;2];void pushup(int x)&#123; t[x].sum=(t[x&lt;&lt;1].sum+t[x&lt;&lt;1|1].sum)%Mod;&#125;void pushdown(int x,int l,int r)&#123; if(t[x].atag) &#123; int mid=(l+r)&gt;&gt;1; t[x&lt;&lt;1].sum=(t[x&lt;&lt;1].sum+1ll*t[x].atag*((sum[mid]-sum[l-1]+Mod)%Mod)%Mod)%Mod; t[x&lt;&lt;1|1].sum=(t[x&lt;&lt;1|1].sum+1ll*t[x].atag*((sum[r]-sum[mid]+Mod)%Mod)%Mod)%Mod; t[x&lt;&lt;1].atag+=t[x].atag;t[x&lt;&lt;1|1].atag+=t[x].atag; t[x].atag=0; &#125;&#125;void modify(int o,int l,int r,int posl,int posr)&#123; if(posl&lt;=l &amp;&amp; r&lt;=posr) &#123; t[o].sum=((t[o].sum+sum[r])%Mod-sum[l-1]+Mod)%Mod; t[o].atag++; return; &#125; int mid=(l+r)&gt;&gt;1;pushdown(o,l,r); if(posl&lt;=mid)modify(o&lt;&lt;1,l,mid,posl,posr); if(mid&lt;posr)modify(o&lt;&lt;1|1,mid+1,r,posl,posr); pushup(o);&#125;int query(int o,int l,int r,int posl,int posr)&#123; if(posl&lt;=l &amp;&amp; r&lt;=posr)return t[o].sum; int mid=(l+r)&gt;&gt;1,s=0;pushdown(o,l,r); if(posl&lt;=mid)s=query(o&lt;&lt;1,l,mid,posl,posr); if(mid&lt;posr)s=(s+query(o&lt;&lt;1|1,mid+1,r,posl,posr))%Mod; return s;&#125;void Modify(int x)&#123; while(x) &#123; modify(1,1,n,dfn[top[x]],dfn[x]); x=fa[top[x]]; &#125;&#125;int Query(int x)&#123; int ret=0; while(x) &#123; ret=(ret+query(1,1,n,dfn[top[x]],dfn[x]))%Mod; x=fa[top[x]]; &#125; return ret;&#125;int ans[N];int main()&#123; freopen("poetry.in","r",stdin); freopen("poetry.out","w",stdout); n=gi();Q=gi();k=gi(); for(int i=2;i&lt;=n;i++)fa[i]=gi(),Add(fa[i],i); for(int i=1;i&lt;=Q;i++)q[i].x=gi(),q[i].y=gi(),q[i].id=i; sort(q+1,q+Q+1,cmp); dfs1(1,1);dfs2(1,1); for(int i=1;i&lt;=n;i++)sum[i]=(sum[i-1]+(qpow(dep[id[i]],k)-qpow(dep[id[i]]-1,k)+Mod)%Mod)%Mod; int pos=1; for(int i=1;i&lt;=Q;i++) &#123; while(pos&lt;=q[i].x) &#123; Modify(pos);pos++; &#125; ans[q[i].id]=Query(q[i].y); &#125; for(int i=1;i&lt;=Q;i++)printf("%d\n",ans[i]); return 0;&#125;]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>树链剖分</tag>
+        <tag>差分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[GXOI/GZOI2019]旅行者]]></title>
+    <url>%2Fgxoi-gzoi2019-%E6%97%85%E8%A1%8C%E8%80%85%2F</url>
+    <content type="text"><![CDATA[传送门Loj Solution考虑两个关键点对之间一定不会经过另一个关键点,那么就跑两边$dijkstra$然后枚举边就行了.具体实现见代码. 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define int ll#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=200010,M=1000010;struct node&#123; int to,nxt,w,id;&#125;e[M];struct edge&#123;int u,v,w;&#125;ed[M&lt;&lt;1];int front[N],cnt=1,a[N],bl[N][2],n,m,k,vis[N];ll dis[N][2];void Add(int u,int v,int w)&#123;e[++cnt]=(node)&#123;v,front[u],w,0&#125;;front[u]=cnt;e[++cnt]=(node)&#123;u,front[v],w,1&#125;;front[v]=cnt;&#125;typedef pair&lt;ll,int&gt; pii;priority_queue&lt;pii,vector&lt;pii&gt;,greater&lt;pii&gt; &gt;q;#define mp make_pairvoid solve()&#123; ll ans=1e18+10; for(int i=1;i&lt;=n;i++)dis[i][0]=1e18,vis[i]=0; for(int i=1;i&lt;=k;i++)dis[a[i]][0]=0,bl[a[i]][0]=a[i],q.push(mp(0,a[i])); while(!q.empty()) &#123; pii now=q.top();q.pop();int u=now.second; if(vis[u])continue;vis[u]=1; for(int i=front[u];i;i=e[i].nxt) &#123; if(e[i].id)continue; int v=e[i].to; if(dis[v][0]&gt;dis[u][0]+e[i].w) &#123; dis[v][0]=dis[u][0]+e[i].w; q.push(mp(dis[v][0],v)); bl[v][0]=bl[u][0]; &#125; &#125; &#125; for(int i=1;i&lt;=n;i++)dis[i][1]=1e18,vis[i]=0; for(int i=1;i&lt;=k;i++)dis[a[i]][1]=0,bl[a[i]][1]=a[i],q.push(mp(0,a[i])); while(!q.empty()) &#123; pii now=q.top();q.pop();int u=now.second; if(vis[u])continue;vis[u]=1; for(int i=front[u];i;i=e[i].nxt) &#123; if(!e[i].id)continue; int v=e[i].to; if(dis[v][1]&gt;dis[u][1]+e[i].w) &#123; dis[v][1]=dis[u][1]+e[i].w; q.push(mp(dis[v][1],v)); bl[v][1]=bl[u][1]; &#125; &#125; &#125; for(int i=1;i&lt;=m;i++) &#123; int u=ed[i].u,v=ed[i].v; if(bl[u][0]==bl[v][1])continue; ans=min(ans,ed[i].w+dis[u][0]+dis[v][1]); &#125; printf("%lld\n",ans);&#125;signed main()&#123; freopen("tourist.in","r",stdin); freopen("tourist.out","w",stdout); int T=gi(); while(T--) &#123; n=gi();m=gi();k=gi(); for(int i=1;i&lt;=m;i++)&#123;int x=gi(),y=gi(),z=gi();Add(x,y,z);ed[i]=(edge)&#123;x,y,z&#125;;&#125; for(int i=1;i&lt;=k;i++)a[i]=gi(); solve(); for(int i=1;i&lt;=n;i++)front[i]=0;cnt=1; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>最短路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[GXOI/GZOI2019]逼死强迫症]]></title>
+    <url>%2Fgxoi-gzoi2019-%E9%80%BC%E6%AD%BB%E5%BC%BA%E8%BF%AB%E7%97%87%2F</url>
+    <content type="text"><![CDATA[传送门Loj Solution比较简单.考虑设$f_i$表示当$N$为$i$的时候的答案,$g_i$表示只用1*2的铺满$2*i$格子的方案数.有:$f_i=f_{i-1}+f_{i-2}+2*\sum_{j=1}^{i-3}g_j$然后我们又知道斐波那契数列的前缀和$s_i$=$g_i+2$,直接矩阵快速幂就好了. 代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int Mod=1e9+7;struct matrix&#123; int a[5][5];&#125;S,T;matrix cheng(matrix a,matrix b)&#123; matrix c; for(int i=0;i&lt;5;i++) for(int j=0;j&lt;5;j++) &#123; c.a[i][j]=0; for(int k=0;k&lt;5;k++) c.a[i][j]=(c.a[i][j]+1ll*a.a[i][k]*b.a[k][j]%Mod)%Mod; &#125; return c;&#125;int main()&#123; freopen("obsession.in","r",stdin); freopen("obsession.out","w",stdout); int Case=gi(); while(Case--) &#123; int n=gi(); S.a[0][0]=0;S.a[0][1]=0;S.a[0][2]=1;S.a[0][3]=2;S.a[0][4]=2; T.a[0][0]=0;T.a[0][1]=1;T.a[0][2]=0;T.a[0][3]=0;T.a[0][4]=0; T.a[1][0]=1;T.a[1][1]=1;T.a[1][2]=0;T.a[1][3]=0;T.a[1][4]=0; T.a[2][0]=0;T.a[2][1]=0;T.a[2][2]=0;T.a[2][3]=1;T.a[2][4]=0; T.a[3][0]=0;T.a[3][1]=2;T.a[3][2]=1;T.a[3][3]=1;T.a[3][4]=0; T.a[4][0]=0;T.a[4][1]=Mod-1;T.a[4][2]=0;T.a[4][3]=0;T.a[4][4]=1; if(n==1)&#123;puts("0");continue;&#125; n-=2; while(n) &#123; if(n&amp;1)S=cheng(S,T); T=cheng(T,T);n&gt;&gt;=1; &#125; printf("%d\n",S.a[0][1]); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>递推</tag>
+        <tag>矩阵快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GX|GZOI2019Day1]]></title>
     <url>%2Fgx-gzoi2019day1%2F</url>
     <content type="text"><![CDATA[没有摘要 戳我看总结]]></content>
@@ -88,9 +123,9 @@
         <category>Solution</category>
       </categories>
       <tags>
+        <tag>计算几何</tag>
         <tag>凸包</tag>
         <tag>动态凸包</tag>
-        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -101,8 +136,8 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>凸包</tag>
         <tag>计算几何</tag>
+        <tag>凸包</tag>
       </tags>
   </entry>
   <entry>
