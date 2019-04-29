@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.mle-world.cn/"/>
-  <updated>2019-04-28T10:10:27.541Z</updated>
+  <updated>2019-04-29T00:05:27.187Z</updated>
   <id>https://blog.mle-world.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GX|GZOI2019Day1</title>
+    <link href="https://blog.mle-world.cn/gx-gzoi2019day1/"/>
+    <id>https://blog.mle-world.cn/gx-gzoi2019day1/</id>
+    <published>2019-04-29T00:04:06.000Z</published>
+    <updated>2019-04-29T00:05:27.187Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.mle-world.cn/Summary/solution/GX%7CGZOI2019Day1.pdf">戳我看总结</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.mle-world.cn/Summary/solution/GX%7CGZOI2019Day1.pdf&quot;&gt;戳我看总结&lt;/a&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Summary" scheme="https://blog.mle-world.cn/categories/Summary/"/>
+    
+    
+      <category term="省选题解" scheme="https://blog.mle-world.cn/tags/%E7%9C%81%E9%80%89%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>[GXOI/GZOI2019]特技飞行</title>
