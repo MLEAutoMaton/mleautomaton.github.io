@@ -23,14 +23,13 @@
     <published>2019-04-29T10:03:03.000Z</published>
     <updated>2019-04-29T10:05:26.912Z</updated>
     
-    <content type="html"><![CDATA[<div class="table-container"><table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>省份</strong></td><td><strong>T1</strong></td><td><strong>T2</strong></td><td><strong>T3</strong></td></tr><tr><td>ZJOI Day1</td><td></td><td></td><td></td></tr><tr><td>ZJOI Day2</td><td></td><td></td><td></td></tr><tr><td>HNOI Day1</td><td></td><td></td><td></td></tr><tr><td>HNOI Day2</td><td>$\surd$</td><td></td><td></td></tr><tr><td>十二省 Day1</td><td></td><td></td><td></td></tr><tr><td>十二省 Day2</td><td></td><td></td><td></td></tr><tr><td>GX/GZOI Day1</td><td>$\surd$</td><td>$\surd$</td><td>$\surd$</td></tr><tr><td>GX/GZOI Day2</td><td>$\surd$</td><td>$\surd$</td><td>$\surd$</td></tr><tr><td>BJOI Day1</td><td></td><td></td><td></td></tr><tr><td>BJOI Day2</td><td></td><td></td><td></td></tr><tr><td>SNOI Day2</td><td></td><td></td><td></td></tr><tr><td>SNOI Day2</td><td></td><td></td></tr></tbody></table></div>]]></content>
+    <content type="html"><![CDATA[<table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>省份</strong></td><td><strong>T1</strong></td><td><strong>T2</strong></td><td><strong>T3</strong></td></tr><tr><td>ZJOI Day1</td><td></td><td></td><td></td></tr><tr><td>ZJOI Day2</td><td></td><td></td><td></td></tr><tr><td>HNOI Day1</td><td></td><td></td><td></td></tr><tr><td>HNOI Day2</td><td>$\surd$</td><td></td><td></td></tr><tr><td>十二省 Day1</td><td></td><td></td><td></td></tr><tr><td>十二省 Day2</td><td></td><td></td><td></td></tr><tr><td>GX/GZOI Day1</td><td>$\surd$</td><td>$\surd$</td><td>$\surd$</td></tr><tr><td>GX/GZOI Day2</td><td>$\surd$</td><td>$\surd$</td><td>$\surd$</td></tr><tr><td>BJOI Day1</td><td></td><td></td><td></td></tr><tr><td>BJOI Day2</td><td></td><td></td><td></td></tr><tr><td>SNOI Day2</td><td></td><td></td><td></td></tr><tr><td>SNOI Day2</td><td></td><td></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;div class=&quot;table-container&quot;&gt;
-&lt;table&gt;
+        &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -41,7 +40,8 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;省份&lt;/stron
+&lt;td&gt;&lt;strong&gt;省份&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;T1&lt;/strong
       
     
     </summary>
@@ -120,13 +120,13 @@
   </entry>
   
   <entry>
-    <title>GX|GZOI2019Day1</title>
-    <link href="https://blog.mle-world.cn/gx-gzoi2019day1/"/>
-    <id>https://blog.mle-world.cn/gx-gzoi2019day1/</id>
+    <title>GX|GZOI2019</title>
+    <link href="https://blog.mle-world.cn/gx-gzoi2019/"/>
+    <id>https://blog.mle-world.cn/gx-gzoi2019/</id>
     <published>2019-04-29T00:04:06.000Z</published>
-    <updated>2019-04-29T00:10:34.092Z</updated>
+    <updated>2019-04-30T05:04:56.998Z</updated>
     
-    <content type="html"><![CDATA[<p>没有摘要<br><a id="more"></a></p><p><a href="https://blog.mle-world.cn/Summary/solution/GX%7CGZOI2019Day1.pdf">戳我看总结</a></p>]]></content>
+    <content type="html"><![CDATA[<p>没有摘要<br><a id="more"></a></p><p><a href="https://blog.mle-world.cn/Summary/solution/GX%7CGZOI2019.pdf">戳我看总结</a></p>]]></content>
     
     <summary type="html">
     
