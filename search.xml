@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[HAOI2008]下落的圆盘]]></title>
+    <url>%2Fhaoi2008-%E4%B8%8B%E8%90%BD%E7%9A%84%E5%9C%86%E7%9B%98%2F</url>
+    <content type="text"><![CDATA[传送门Luogu Solution想一想,我们求一下每一个圆没被后面的覆盖的面积加起来就是答案.每一个求的话可以求后面的后一个圆与它的交集,然后做一个线段覆盖.没了. 代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=1010;struct node&#123; double r,x,y; void gi()&#123;scanf("%lf%lf%lf",&amp;r,&amp;x,&amp;y);&#125;&#125;p[N];const double Pi=acos(-1.0);struct line&#123;double l,r;&#125;q[N&lt;&lt;2];int n,tot;double dis(int x,int y)&#123;return sqrt((p[x].x-p[y].x)*(p[x].x-p[y].x)+(p[x].y-p[y].y)*(p[x].y-p[y].y));&#125;bool contain(int i,int j)&#123;double d=dis(i,j);return p[j].r-p[i].r&gt;=d;&#125;//i被j包含bool out(int i,int j)&#123;double d=dis(i,j);return p[j].r+p[i].r&lt;=d;&#125;//外切或外离bool cmp(line a,line b)&#123;return a.l&lt;b.l;&#125;double solve(int id)&#123; tot=0; for(int i=id+1;i&lt;=n;i++)if(contain(id,i))return 0.0; for(int i=id+1;i&lt;=n;i++) &#123; if(contain(i,id) || out(i,id))continue; double d=dis(i,id); double t=acos((d*d+p[id].r*p[id].r-p[i].r*p[i].r)*1./(2.0*p[id].r*d)); double jz=atan2(p[i].y-p[id].y,p[i].x-p[id].x); q[++tot]=(line)&#123;jz-t,jz+t&#125;; if(q[tot].l&lt;0)q[tot].l+=2*Pi;if(q[tot].r&lt;0)q[tot].r+=2*Pi; if(q[tot].l&gt;q[tot].r)&#123;double R=q[tot].r;q[tot].r=2*Pi;q[++tot]=(line)&#123;0,R&#125;;&#125; &#125; sort(q+1,q+tot+1,cmp);//线段覆盖 double ret=0,now=0; for(int i=1;i&lt;=tot;i++) &#123; if(q[i].l&gt;now)&#123;ret+=q[i].l-now;now=q[i].r;&#125; else now=max(now,q[i].r); &#125; ret+=2*Pi-now; return ret*p[id].r;&#125;int main()&#123;#ifndef ONLINE_JUDGE freopen("circle.in","r",stdin);#endif n=gi(); for(int i=1;i&lt;=n;i++)p[i].gi(); double ans=0; for(int i=1;i&lt;=n;i++)ans+=solve(i); printf("%.3lf\n",ans); return 0;&#125;]]></content>
+      <categories>
+        <category>Solution</category>
+      </categories>
+      <tags>
+        <tag>贪心</tag>
+        <tag>计算几何</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[TJOI2019]大中锋的游乐场]]></title>
     <url>%2Ftjoi2019-%E5%A4%A7%E4%B8%AD%E9%94%8B%E7%9A%84%E6%B8%B8%E4%B9%90%E5%9C%BA%2F</url>
     <content type="text"><![CDATA[传送门Loj Solution我们设$dp_{i,j,k}$表示当前到了$i$这个节点,两个的差为$j$,大一点的是$k$,然后SPFA转移就好了.其实也可以直接设$dp_{i,j}$,然后$j \in [-k,k]$.没了. 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596/* mail: mleautomaton@foxmail.com author: MLEAutoMaton This Code is made by MLEAutoMaton*/#include&lt;stdio.h&gt;#include&lt;stdlib.h&gt;#include&lt;string.h&gt;#include&lt;math.h&gt;#include&lt;algorithm&gt;#include&lt;queue&gt;#include&lt;set&gt;#include&lt;map&gt;#include&lt;iostream&gt;using namespace std;#define ll long long#define re register#define file(a) freopen(a".in","r",stdin);freopen(a".out","w",stdout)inline int gi()&#123; int f=1,sum=0;char ch=getchar(); while(ch&gt;'9' || ch&lt;'0')&#123;if(ch=='-')f=-1;ch=getchar();&#125; while(ch&gt;='0' &amp;&amp; ch&lt;='9')&#123;sum=(sum&lt;&lt;3)+(sum&lt;&lt;1)+ch-'0';ch=getchar();&#125; return f*sum;&#125;const int N=10010,M=100010;struct node&#123; int to,nxt,w;&#125;e[M&lt;&lt;1];int front[N],cnt,dp[N][20][2],bl[N],n,m,k,s,t,flag;void Add(int u,int v,int w)&#123;e[++cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt;&#125;void clear()&#123;memset(front,0,sizeof(front));cnt=0;flag=0;&#125;typedef pair&lt;int,int&gt; pii;typedef pair&lt;int,pii&gt; piii;#define mp make_pairqueue&lt;piii&gt;Q;int vis[N][20][2];void spfa(int s)&#123; memset(dp,127/2,sizeof(dp)); dp[s][1][bl[s]]=0; Q.push(mp(s,mp(1,bl[s]))); while(!Q.empty()) &#123; piii now=Q.front();Q.pop();int u=now.first;vis[u][now.second.first][now.second.second]=0; if(u==t)flag=1; for(int i=front[u];i;i=e[i].nxt) &#123; int v=e[i].to,cha,Max; if(!now.second.first)cha=1,Max=bl[v]; else if(now.second.second==bl[v])cha=now.second.first+1,Max=now.second.second; else cha=now.second.first-1,Max=now.second.second; if(cha&gt;k)continue; if(dp[v][cha][Max]&gt;dp[u][now.second.first][now.second.second]+e[i].w) &#123; dp[v][cha][Max]=dp[u][now.second.first][now.second.second]+e[i].w; if(!vis[v][cha][Max])&#123;vis[v][cha][Max]=1;Q.push(mp(v,mp(cha,Max)));&#125; &#125; if(!cha) &#123; Max^=1; if(dp[v][cha][Max]&gt;dp[u][now.second.first][now.second.second]+e[i].w) &#123; dp[v][cha][Max]=dp[u][now.second.first][now.second.second]+e[i].w; if(!vis[v][cha][Max])&#123;vis[v][cha][Max]=1;Q.push(mp(v,mp(cha,Max)));&#125; &#125; &#125; &#125; &#125;&#125;int main()&#123;#ifndef ONLINE_JUDGE freopen("park.in","r",stdin);#endif int T=gi(); while(T--) &#123; clear(); n=gi();m=gi();k=gi(); for(int i=1;i&lt;=n;i++)bl[i]=gi()-1; for(int i=1;i&lt;=m;i++) &#123; int u=gi(),v=gi(),w=gi(); Add(u,v,w);Add(v,u,w); &#125; s=gi(),t=gi(); spfa(s);int ans=1e9+10; if(!flag)&#123;puts("-1");continue;&#125; for(int i=0;i&lt;=k;i++) ans=min(ans,min(dp[t][i][0],dp[t][i][1])); printf("%d\n",ans); &#125; return 0;&#125;]]></content>
@@ -196,9 +208,9 @@
         <category>Solution</category>
       </categories>
       <tags>
+        <tag>计算几何</tag>
         <tag>凸包</tag>
         <tag>动态凸包</tag>
-        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -209,8 +221,8 @@
         <category>Solution</category>
       </categories>
       <tags>
-        <tag>凸包</tag>
         <tag>计算几何</tag>
+        <tag>凸包</tag>
       </tags>
   </entry>
   <entry>
