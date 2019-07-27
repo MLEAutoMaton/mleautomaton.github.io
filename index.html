@@ -315,6 +315,484 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/tjoi2015-线性代数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MLEAutoMaton">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MLEAutoMaton's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/tjoi2015-线性代数/" itemprop="url">[TJOI2015]线性代数</a></h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T22:28:15+08:00">
+                2019-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/tjoi2015-线性代数/" class="leancloud_visitors" data-flag-title="[TJOI2015]线性代数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一次觉得我这么菜啊…<del>菜是原罪</del></p>
+<p>考虑把题目要求的式子拆开:</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(A*B-C)A^T&=A*B*A^T-C*A^T\\
+&=\sum_{i=1}^n\sum_{j=1}^nb_{i,j}*a_j*a_i-\sum_{i=1}^nc_i*a_i
+\end{align}</script><p>我们不妨思考一下这个式子的现实意义,相当于是说如果你选一个点,会产生$c_i$的代价,如果选两个点,会产生$b_{i,j}$的收益,最大化<strong>收益与价值的差</strong>.</p>
+<p>然后直接网络流建边就行了.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">    <span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1010</span>,Inf=<span class="number">1e9</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> id[N][N],b[N][N],c[N],n,s,t,front[N*N],cnt,cur[N*N],dep[N*N];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="keyword">int</span> to,nxt,w;&#125;e[N*N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">    e[cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt++;</span><br><span class="line">    e[cnt]=(node)&#123;u,front[v],<span class="number">0</span>&#125;;front[v]=cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Q.push(s);<span class="built_in">memset</span>(dep,<span class="number">0</span>,<span class="keyword">sizeof</span>(dep));dep[s]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> u=Q.front();Q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">            <span class="keyword">int</span> v=e[i].to;</span><br><span class="line">            <span class="keyword">if</span>(!dep[v] &amp;&amp; e[i].w)&#123;</span><br><span class="line">                dep[v]=dep[u]+<span class="number">1</span>;Q.push(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dep[t];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> flow)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u==t || !flow)<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> &amp;i=cur[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">		<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">		<span class="keyword">if</span>(dep[v]==dep[u]+<span class="number">1</span> &amp;&amp; e[i].w)&#123;</span><br><span class="line">			<span class="keyword">int</span> di=dfs(v,min(flow,e[i].w));</span><br><span class="line">			<span class="keyword">if</span>(di)&#123;</span><br><span class="line">				e[i].w-=di;e[i^<span class="number">1</span>].w+=di;</span><br><span class="line">				<span class="keyword">return</span> di;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> dep[v]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(bfs())&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=s;i&lt;=t;i++)cur[i]=front[i];</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">int</span> d=dfs(s,Inf))flow+=d;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">    freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    n=gi();<span class="keyword">int</span> tot=<span class="number">0</span>,ans=<span class="number">0</span>;<span class="built_in">memset</span>(front,<span class="number">-1</span>,<span class="keyword">sizeof</span>(front));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            b[i][j]=gi(),id[i][j]=++tot;</span><br><span class="line">            ans+=b[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)c[i]=gi();</span><br><span class="line">    s=<span class="number">0</span>;t=n+tot+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            Add(s,id[i][j],b[i][j]);</span><br><span class="line">            Add(id[i][j],i+tot,Inf);</span><br><span class="line">            <span class="keyword">if</span>(j!=i)Add(id[i][j],j+tot,Inf);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)Add(tot+i,t,c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans-Dinic());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/poi2010-bridges/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MLEAutoMaton">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MLEAutoMaton's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poi2010-bridges/" itemprop="url">POI2010 Bridges</a></h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T22:03:23+08:00">
+                2019-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/poi2010-bridges/" class="leancloud_visitors" data-flag-title="POI2010 Bridges">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>好题$Q\omega Q$</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/poi2010-bridges/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/bzoj2406-矩阵/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MLEAutoMaton">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MLEAutoMaton's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/bzoj2406-矩阵/" itemprop="url">bzoj2406 矩阵</a></h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-26T22:02:10+08:00">
+                2019-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Solution/" itemprop="url" rel="index">
+                    <span itemprop="name">Solution</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/bzoj2406-矩阵/" class="leancloud_visitors" data-flag-title="bzoj2406 矩阵">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>我们不妨想一想,这道题目又有$abs$又有$Max$不是很好算对吧.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/bzoj2406-矩阵/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/上下界网络流总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,8 +848,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solution/" itemprop="url" rel="index">
-                    <span itemprop="name">Solution</span>
+                  <a href="/categories/Summary/" itemprop="url" rel="index">
+                    <span itemprop="name">Summary</span>
                   </a>
                 </span>
 
@@ -419,25 +897,14 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现网路流很菜,所以就做点题目练练手.</p>
-<h2 id="无源汇上下界可行流"><a href="#无源汇上下界可行流" class="headerlink" title="无源汇上下界可行流"></a>无源汇上下界可行流</h2><p><a href="https://loj.ac/problem/115" target="_blank" rel="noopener">题面</a></p>
-<p>我们不妨先把所有的边的容量设为$[0,upp-low]$,那么这个时候显然一条边的实际流量应该是$flow_i+low_i$对吧.</p>
-<p>我们对于新建的图跑流,肯定是能够保证$flow_i$平衡,但是我们无法保证$flow_i+low_i$平衡,这时我们引入一个$delta$数组.</p>
-<p>对于$delta_i$,它的值是所有出边的下界-入边的下界.</p>
-<p>那么这个时候我们对于$delta_i&gt;0$的就只需要增加它的入边,$delta&lt;0$的增加它的出边.</p>
-<p>这时我们引入超级源点和超级汇点,然后直接按照上述方法连边即可.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">50010</span>,Inf=<span class="number">1e9</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> front[N],cnt,n,m,s,t,dep[N],in[N],out[N];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="keyword">int</span> to,nxt,w;&#125;e[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">	e[cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt++;</span><br><span class="line">	e[cnt]=(node)&#123;u,front[v],<span class="number">0</span>&#125;;front[v]=cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Q.push(s);<span class="built_in">memset</span>(dep,<span class="number">0</span>,<span class="keyword">sizeof</span>(dep));dep[s]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u=Q.front();Q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">			<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">			<span class="keyword">if</span>(!dep[v] &amp;&amp; e[i].w)&#123;</span><br><span class="line">				dep[v]=dep[u]+<span class="number">1</span>;Q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dep[t];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> flow)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u==t || !flow)<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">		<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">		<span class="keyword">if</span>(dep[v]==dep[u]+<span class="number">1</span> &amp;&amp; e[i].w)&#123;</span><br><span class="line">			<span class="keyword">int</span> di=dfs(v,min(flow,e[i].w));</span><br><span class="line">			<span class="keyword">if</span>(di)&#123;</span><br><span class="line">				e[i].w-=di;e[i^<span class="number">1</span>].w+=di;<span class="keyword">return</span> di;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> dep[v]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(bfs())<span class="keyword">while</span>(<span class="keyword">int</span> d=dfs(s,Inf))flow+=d;</span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> sum,Up[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">	freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	n=gi();m=gi();<span class="built_in">memset</span>(front,<span class="number">-1</span>,<span class="keyword">sizeof</span>(front));</span><br><span class="line">	s=<span class="number">0</span>;t=n+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u=gi(),v=gi(),low=gi(),upp=gi();</span><br><span class="line">		in[v]+=low;out[u]+=low;Up[i]=upp;</span><br><span class="line">		Add(u,v,upp-low);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(in[i]&gt;out[i])&#123;Add(s,i,in[i]-out[i]);sum+=in[i]-out[i];&#125;</span><br><span class="line">		<span class="keyword">else</span> Add(i,t,out[i]-in[i]);</span><br><span class="line">	<span class="keyword">int</span> flow=Dinic();</span><br><span class="line">	<span class="keyword">if</span>(flow&lt;sum)<span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">"NO"</span>),<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Up[i]-e[(i<span class="number">-1</span>)*<span class="number">2</span>].w);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="有源汇上下界最大流"><a href="#有源汇上下界最大流" class="headerlink" title="有源汇上下界最大流"></a>有源汇上下界最大流</h2><p><a href="https://loj.ac/problem/116" target="_blank" rel="noopener">题面</a></p>
-<p>还是先按照上述的方法,将$t-&gt;s$连边$\infty$保证流量平衡,然后跑出来一个可行流.</p>
-<p>接着在残量网络上面跑$s-&gt;t$的最大流就是答案.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100010</span>,Inf=<span class="number">1e9</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,s,t,front[N],cnt,dep[N],ss,tt,delta[N],sum;<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="keyword">int</span> to,nxt,w;&#125;e[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">	e[cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt++;</span><br><span class="line">	e[cnt]=(node)&#123;u,front[v],<span class="number">0</span>&#125;;front[v]=cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Q.push(ss);<span class="built_in">memset</span>(dep,<span class="number">0</span>,<span class="keyword">sizeof</span>(dep));dep[ss]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u=Q.front();Q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">			<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">			<span class="keyword">if</span>(!dep[v] &amp;&amp; e[i].w)&#123;</span><br><span class="line">				dep[v]=dep[u]+<span class="number">1</span>;Q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dep[tt];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> flow)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u==tt || !flow)<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">		<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">		<span class="keyword">if</span>(dep[v]==dep[u]+<span class="number">1</span> &amp;&amp; e[i].w)&#123;</span><br><span class="line">			<span class="keyword">int</span> di=dfs(v,min(e[i].w,flow));</span><br><span class="line">			<span class="keyword">if</span>(di)&#123;</span><br><span class="line">				e[i].w-=di;e[i^<span class="number">1</span>].w+=di;<span class="keyword">return</span> di;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> dep[v]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(bfs())<span class="keyword">while</span>(<span class="keyword">int</span> d=dfs(ss,Inf))flow+=d;</span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=gi();m=gi();s=gi();t=gi();<span class="built_in">memset</span>(front,<span class="number">-1</span>,<span class="keyword">sizeof</span>(front));</span><br><span class="line">	ss=n+<span class="number">1</span>;tt=ss+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u=gi(),v=gi(),low=gi(),upp=gi();</span><br><span class="line">		Add(u,v,upp-low);</span><br><span class="line">		delta[u]-=low;delta[v]+=low;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(delta[i]&gt;<span class="number">0</span>)Add(ss,i,delta[i]),sum+=delta[i];</span><br><span class="line">		<span class="keyword">else</span> Add(i,tt,-delta[i]);</span><br><span class="line">	Add(t,s,Inf);</span><br><span class="line">	<span class="keyword">int</span> flow=Dinic();</span><br><span class="line">	<span class="keyword">if</span>(flow&lt;sum)<span class="built_in">puts</span>(<span class="string">"please go home to sleep"</span>);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		ss=s;tt=t;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Dinic());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="有源汇上下界最小流"><a href="#有源汇上下界最小流" class="headerlink" title="有源汇上下界最小流"></a>有源汇上下界最小流</h2><p><a href="https://loj.ac/problem/117" target="_blank" rel="noopener">题面</a></p>
-<p>还是先按照上述的方法,将$t-&gt;s$连边$\infty$保证流量平衡,然后跑出来一个可行流.</p>
-<p>接着在残量网络上面跑出$t-&gt;s$的最大流.最后那可行流减去最大流就是答案.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000010</span>,Inf=<span class="number">1e9</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,s,t,cur[N],front[N],cnt,dep[N],ss,tt,delta[N],sum;<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;Q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="keyword">int</span> to,nxt,w;&#125;e[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">	e[cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt++;</span><br><span class="line">	e[cnt]=(node)&#123;u,front[v],<span class="number">0</span>&#125;;front[v]=cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Q.push(ss);<span class="built_in">memset</span>(dep,<span class="number">0</span>,<span class="keyword">sizeof</span>(dep));dep[ss]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(!Q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u=Q.front();Q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">			<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">			<span class="keyword">if</span>(!dep[v] &amp;&amp; e[i].w)&#123;</span><br><span class="line">				dep[v]=dep[u]+<span class="number">1</span>;Q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dep[tt];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> flow)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u==tt || !flow)<span class="keyword">return</span> flow;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> &amp;i=cur[u];~i;i=e[i].nxt)&#123;</span><br><span class="line">		<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">		<span class="keyword">if</span>(dep[v]==dep[u]+<span class="number">1</span> &amp;&amp; e[i].w)&#123;</span><br><span class="line">			<span class="keyword">int</span> di=dfs(v,min(e[i].w,flow));</span><br><span class="line">			<span class="keyword">if</span>(di)&#123;</span><br><span class="line">				e[i].w-=di;e[i^<span class="number">1</span>].w+=di;<span class="keyword">return</span> di;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> dep[v]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> flow=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(bfs())&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max(tt,n);i++)cur[i]=front[i];</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">int</span> d=dfs(ss,Inf))flow+=d;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];~i;i=e[i].nxt)</span><br><span class="line">		e[i].w=e[i^<span class="number">1</span>].w=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">	freopen(<span class="string">"in.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	n=gi();m=gi();s=gi();t=gi();<span class="built_in">memset</span>(front,<span class="number">-1</span>,<span class="keyword">sizeof</span>(front));</span><br><span class="line">	ss=n+<span class="number">1</span>;tt=ss+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u=gi(),v=gi(),low=gi(),upp=gi();</span><br><span class="line">		Add(u,v,upp-low);</span><br><span class="line">		delta[u]-=low;delta[v]+=low;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(delta[i]&gt;<span class="number">0</span>)Add(ss,i,delta[i]),sum+=delta[i];</span><br><span class="line">		<span class="keyword">else</span> Add(i,tt,-delta[i]);</span><br><span class="line">	Add(t,s,Inf);</span><br><span class="line">	<span class="keyword">int</span> flow=Dinic();</span><br><span class="line">	<span class="keyword">if</span>(flow&lt;sum)<span class="built_in">puts</span>(<span class="string">"please go home to sleep"</span>);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		flow=e[cnt<span class="number">-1</span>].w;</span><br><span class="line">		del(ss);del(tt);ss=t;tt=s;e[cnt<span class="number">-1</span>].w=e[cnt<span class="number">-2</span>].w=<span class="number">0</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,flow-Dinic());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近发现网络流很菜,所以就做点题目练练手.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/上下界网络流总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -588,12 +1055,14 @@
 
       
         
-          
-            <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://www.luogu.org/problemnew/show/P4408" target="_blank" rel="noopener">Luogu</a></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑题目要求的就是$dis(A,B)+min(dis(A,C),dis(B,C))$，直接搞一个树的直径然后暴力枚举就好了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  mail: mleautomaton@foxmail.com</span></span><br><span class="line"><span class="comment">  author: MLEAutoMaton</span></span><br><span class="line"><span class="comment">  This Code is made by MLEAutoMaton</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int ll</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> file(a) freopen(a<span class="meta-string">".in"</span>,<span class="meta-string">"r"</span>,stdin);freopen(a<span class="meta-string">".out"</span>,<span class="meta-string">"w"</span>,stdout)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gi</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> f=<span class="number">1</span>,sum=<span class="number">0</span>;<span class="keyword">char</span> ch=getchar();</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;<span class="string">'9'</span> || ch&lt;<span class="string">'0'</span>)&#123;<span class="keyword">if</span>(ch==<span class="string">'-'</span>)f=<span class="number">-1</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span> &amp;&amp; ch&lt;=<span class="string">'9'</span>)&#123;sum=(sum&lt;&lt;<span class="number">3</span>)+(sum&lt;&lt;<span class="number">1</span>)+ch-<span class="string">'0'</span>;ch=getchar();&#125;</span><br><span class="line">	<span class="keyword">return</span> f*sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">200010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,front[N],cnt,dis1[N],dis2[N],vis[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="keyword">int</span> to,nxt,w;&#125;e[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span>&#123;e[++cnt]=(node)&#123;v,front[u],w&#125;;front[u]=cnt;&#125;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line">priority_queue&lt;pii,<span class="built_in">vector</span>&lt;pii&gt;,greater&lt;pii&gt; &gt;q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs1</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dis1,<span class="number">63</span>,<span class="keyword">sizeof</span>(dis1));<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">	dis1[s]=<span class="number">0</span>;</span><br><span class="line">	q.push(mp(<span class="number">0</span>,s));</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u=q.top().second;q.pop();</span><br><span class="line">		<span class="keyword">if</span>(vis[u])<span class="keyword">continue</span>;vis[u]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];i;i=e[i].nxt)&#123;</span><br><span class="line">			<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">			<span class="keyword">if</span>(dis1[v]&gt;dis1[u]+e[i].w)&#123;</span><br><span class="line">				dis1[v]=dis1[u]+e[i].w;</span><br><span class="line">				q.push(mp(dis1[v],v));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs2</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(dis2,<span class="number">63</span>,<span class="keyword">sizeof</span>(dis2));<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">	dis2[s]=<span class="number">0</span>;</span><br><span class="line">	q.push(mp(<span class="number">0</span>,s));</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u=q.top().second;q.pop();</span><br><span class="line">		<span class="keyword">if</span>(vis[u])<span class="keyword">continue</span>;vis[u]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front[u];i;i=e[i].nxt)&#123;</span><br><span class="line">			<span class="keyword">int</span> v=e[i].to;</span><br><span class="line">			<span class="keyword">if</span>(dis2[v]&gt;dis2[u]+e[i].w)&#123;</span><br><span class="line">				dis2[v]=dis2[u]+e[i].w;</span><br><span class="line">				q.push(mp(dis2[v],v));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=gi();m=gi();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u=gi(),v=gi(),w=gi();</span><br><span class="line">		Add(u,v,w);Add(v,u,w);</span><br><span class="line">	&#125;</span><br><span class="line">	bfs1(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">int</span> mx=<span class="number">0</span>,id1=<span class="number">0</span>,id2=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(dis1[i]&gt;mx)&#123;mx=dis1[i];id1=i;&#125;</span><br><span class="line">	bfs1(id1);mx=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">if</span>(dis1[i]&gt;mx)&#123;mx=dis1[i];id2=i;&#125;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	bfs2(id2);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		ans=max(ans,min(dis1[i],dis2[i]));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,mx+ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://www.luogu.org/problemnew/show/P4408" target="_blank" rel="noopener">Luogu</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/noi2003-逃学的小孩/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1390,485 +1859,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/tjoi2015-概率论/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MLEAutoMaton">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MLEAutoMaton's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/tjoi2015-概率论/" itemprop="url">[TJOI2015]概率论</a></h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T17:18:11+08:00">
-                2019-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solution/" itemprop="url" rel="index">
-                    <span itemprop="name">Solution</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/tjoi2015-概率论/" class="leancloud_visitors" data-flag-title="[TJOI2015]概率论">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://loj.ac/problem/2105" target="_blank" rel="noopener">Loj</a><br><a href="https://lydsy.com/JudgeOnline/problem.php?id=4001" target="_blank" rel="noopener">BZOJ</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/tjoi2015-概率论/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/haoi2008-下落的圆盘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MLEAutoMaton">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MLEAutoMaton's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/haoi2008-下落的圆盘/" itemprop="url">[HAOI2008]下落的圆盘</a></h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T22:24:45+08:00">
-                2019-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solution/" itemprop="url" rel="index">
-                    <span itemprop="name">Solution</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/haoi2008-下落的圆盘/" class="leancloud_visitors" data-flag-title="[HAOI2008]下落的圆盘">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://www.luogu.org/problemnew/show/P2510" target="_blank" rel="noopener">Luogu</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/haoi2008-下落的圆盘/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.mle-world.cn/tjoi2019-大中锋的游乐场/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MLEAutoMaton">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MLEAutoMaton's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/tjoi2019-大中锋的游乐场/" itemprop="url">[TJOI2019]大中锋的游乐场</a></h1>
-        
-
-        <div class="post-meta">
-          
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T16:52:51+08:00">
-                2019-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solution/" itemprop="url" rel="index">
-                    <span itemprop="name">Solution</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/tjoi2019-大中锋的游乐场/" class="leancloud_visitors" data-flag-title="[TJOI2019]大中锋的游乐场">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://loj.ac/problem/3107" target="_blank" rel="noopener">Loj</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/tjoi2019-大中锋的游乐场/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1916,7 +1911,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1938,7 +1933,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
